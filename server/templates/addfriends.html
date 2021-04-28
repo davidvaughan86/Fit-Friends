@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>add a friend</h1>
+    <label for='fName'>first name</label>
+    <input type='text' name="fName" class='fname'>
+    <label for='lName'>last name</label>
+    <input type='text' name="lName" class='lname'>
+    <label for='gymName'>Gym</label>
+    <input type='text' name="gymName"class='gname'>
+    
+    <button onclick = sendToDB() type='submit' name='submit'>Submit</button>
+</body>
+<script>
+    const sendToDB = async () => {
+        const fname = document.querySelector('.fname').value
+        const lname = document.querySelector('.lname').value
+        const gname = document.querySelector('.gname').value
+        const combinedData = {
+            firstName:fname,
+            lastName:lname,
+            gymName:gname
+        }
+    
+  
+    const submitToDB = await fetch('https://localhost:6006/new_friends',
+    {
+        method: 'POST',
+        headers : {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(combinedData)
+    })
+}
+</script>
+</html>
