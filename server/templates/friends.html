@@ -6,8 +6,35 @@
     <title>Document</title>
 </head>
 <body>
-    ${}
-    ${}
-    ${}
+    <h1>friends list</h1>
+    <a href = 'addfriends'> add friends</a>
+    <div>
+        <ul style='display:flex; flex-wrap: wrap;'>
+
+            ${friends.map(friends => 
+                `
+                <label for='delBtn'></label>
+                <button type='submit' class='delBtn' name='delBtn' style='padding:3%; width:200px; height:200px'>
+                
+                <li>${friends.fname}
+                <p>${friends.user_id}</p>
+                ${friends.lname}</li>
+                <p>Gym Name</p>
+                <li>${friends.gymname}</li>
+                </button>
+                <form
+             action=/friends/${friends.user_id} method='get'>
+             <button type='submit'>Delete</button>
+            </form>
+                
+                
+                
+            `).join("")} 
+            
+        </ul>
+    </div>
+   
+    
+   
 </body>
 </html>
