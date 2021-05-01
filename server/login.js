@@ -50,11 +50,11 @@ function checkAuthenticated(req,res,next) {
     if(req.isAuthenticated() ){
         return next()
     }
-    res.redirect('/home')
+    res.redirect('/')
 }
 
 
-app.get('/', checkAuthenticated, (req,res) => {
+app.get('/',(req,res) => {
     res.render("home", {locals: { name:req.body.name }})
 })
 
